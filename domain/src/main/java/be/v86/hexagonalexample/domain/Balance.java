@@ -23,4 +23,8 @@ public class Balance {
         final long temp = Double.doubleToLongBits(amount);
         return (int) (temp ^ (temp >>> 32));
     }
+
+    public Balance add(final double amountToAdd) {
+        return new Balance(this.amount + amountToAdd);
+    }
 }

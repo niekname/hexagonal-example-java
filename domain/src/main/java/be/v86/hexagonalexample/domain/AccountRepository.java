@@ -1,7 +1,12 @@
 package be.v86.hexagonalexample.domain;
 
 public interface AccountRepository {
-    Account findOne(AccountId accountId);
+
+    Account findById(AccountId accountId) throws AccountNotFoundException;
 
     void save(Account account);
+
+    class AccountNotFoundException extends RuntimeException {
+    }
+
 }
