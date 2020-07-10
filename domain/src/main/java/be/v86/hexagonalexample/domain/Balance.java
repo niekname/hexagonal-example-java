@@ -24,7 +24,15 @@ public class Balance {
         return (int) (temp ^ (temp >>> 32));
     }
 
+    public double getAmount() {
+        return amount;
+    }
+
     public Balance add(final double amountToAdd) {
         return new Balance(this.amount + amountToAdd);
+    }
+
+    public Balance subtract(final double amountToSubtract) {
+        return new Balance(this.amount - amountToSubtract);
     }
 }

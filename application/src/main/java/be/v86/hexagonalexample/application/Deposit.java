@@ -27,10 +27,4 @@ public class Deposit {
             throw new InvalidAmountException();
     }
 
-    class InvalidAccountIdException extends RuntimeException {
-    }
-
-    class InvalidAmountException extends RuntimeException {
-    }
-
 }

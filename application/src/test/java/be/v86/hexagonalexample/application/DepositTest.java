@@ -19,7 +19,7 @@ public class DepositTest {
         DepositRequest depositRequest = new DepositRequest(null, 1);
 
         assertThatThrownBy(() -> deposit.execute(depositRequest))
-                .isInstanceOf(Deposit.InvalidAccountIdException.class);
+                .isInstanceOf(InvalidAccountIdException.class);
     }
 
     @Test
@@ -28,7 +28,7 @@ public class DepositTest {
         DepositRequest depositRequest = new DepositRequest(accountId, 0);
 
         assertThatThrownBy(() -> deposit.execute(depositRequest))
-                .isInstanceOf(Deposit.InvalidAmountException.class);
+                .isInstanceOf(InvalidAmountException.class);
     }
 
     @Test
@@ -37,7 +37,7 @@ public class DepositTest {
         DepositRequest depositRequest = new DepositRequest(accountId, -1.5);
 
         assertThatThrownBy(() -> deposit.execute(depositRequest))
-                .isInstanceOf(Deposit.InvalidAmountException.class);
+                .isInstanceOf(InvalidAmountException.class);
     }
 
     @Test
@@ -50,7 +50,7 @@ public class DepositTest {
     }
 
     @Test
-    void positive_amount() {
+    void success() {
         AccountId accountId = AccountId.BE();
         accountRepository.save(new Account(accountId));
 

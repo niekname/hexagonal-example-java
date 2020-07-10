@@ -21,4 +21,14 @@ public class Account {
     public void deposit(final double amount) {
         this.balance = balance.add(amount);
     }
+
+    public void withdraw(final double amount) {
+        if (amount > balance.getAmount())
+            throw new BalanceInsufficientException();
+
+        this.balance = balance.subtract(amount);
+    }
+
+    public class BalanceInsufficientException extends RuntimeException {
+    }
 }
