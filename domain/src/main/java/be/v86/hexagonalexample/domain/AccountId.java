@@ -6,15 +6,19 @@ public class AccountId {
 
     private final String IBAN;
 
-    private AccountId() {
-        IBAN = generateBE_IBAN();
+    private AccountId(final String IBAN) {
+        this.IBAN = IBAN;
     }
 
     public static AccountId BE() {
-        return new AccountId();
+        return new AccountId(generateBE_IBAN());
     }
 
-    private String generateBE_IBAN() {
+    public static AccountId fromString(final String iban) {
+        return new AccountId(iban);
+    }
+
+    private static String generateBE_IBAN() {
         Random random = new Random();
         return "BE" +
                 String.format("%02d", random.nextInt(100)) +

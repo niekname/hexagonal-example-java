@@ -11,7 +11,8 @@ public class Deposit {
         this.accountRepository = accountRepository;
     }
 
-    public void execute(final DepositRequest depositRequest) {
+    public void execute(final DepositRequest depositRequest)
+            throws AccountRepository.AccountNotFoundException, InvalidAccountIdException, InvalidAmountException {
         validateRequest(depositRequest);
 
         Account account = accountRepository.findById(depositRequest.accountId);
