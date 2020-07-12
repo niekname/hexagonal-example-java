@@ -6,7 +6,7 @@ import be.v86.hexagonalexample.application.DepositRequest;
 import be.v86.hexagonalexample.application.InvalidAccountIdException;
 import be.v86.hexagonalexample.application.InvalidAmountException;
 import be.v86.hexagonalexample.domain.AccountId;
-import be.v86.hexagonalexample.domain.AccountRepository;
+import be.v86.hexagonalexample.domain.AccountNotFoundException;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -59,7 +59,7 @@ public class AccountControllerTest {
 
     @Test
     void deposit_non_existing_account() throws Exception {
-        doThrow(AccountRepository.AccountNotFoundException.class).when(deposit).execute(any(DepositRequest.class));
+        doThrow(AccountNotFoundException.class).when(deposit).execute(any(DepositRequest.class));
 
         mockMvc.perform(
                 post("/accounts/BE12123412341234/deposit")

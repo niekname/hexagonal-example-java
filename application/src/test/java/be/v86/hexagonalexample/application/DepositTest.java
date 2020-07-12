@@ -2,6 +2,7 @@ package be.v86.hexagonalexample.application;
 
 import be.v86.hexagonalexample.domain.Account;
 import be.v86.hexagonalexample.domain.AccountId;
+import be.v86.hexagonalexample.domain.AccountNotFoundException;
 import be.v86.hexagonalexample.domain.AccountRepository;
 import be.v86.hexagonalexample.domain.Balance;
 import org.junit.jupiter.api.Test;
@@ -46,7 +47,7 @@ public class DepositTest {
         DepositRequest depositRequest = new DepositRequest(accountId, 50);
 
         assertThatThrownBy(() -> deposit.execute(depositRequest))
-                .isInstanceOf(AccountRepository.AccountNotFoundException.class);
+                .isInstanceOf(AccountNotFoundException.class);
     }
 
     @Test

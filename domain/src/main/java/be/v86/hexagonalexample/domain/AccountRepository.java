@@ -6,7 +6,4 @@ public interface AccountRepository {
 
     void save(Account account);
 
-    class AccountNotFoundException extends RuntimeException {
-    }
-
 }

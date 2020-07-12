@@ -1,6 +1,7 @@
 package be.v86.hexagonalexample.application;
 
 import be.v86.hexagonalexample.domain.Account;
+import be.v86.hexagonalexample.domain.AccountNotFoundException;
 import be.v86.hexagonalexample.domain.AccountRepository;
 
 public class Deposit {
@@ -12,7 +13,7 @@ public class Deposit {
     }
 
     public void execute(final DepositRequest depositRequest)
-            throws AccountRepository.AccountNotFoundException, InvalidAccountIdException, InvalidAmountException {
+            throws AccountNotFoundException, InvalidAccountIdException, InvalidAmountException {
         validateRequest(depositRequest);
 
         Account account = accountRepository.findById(depositRequest.accountId);

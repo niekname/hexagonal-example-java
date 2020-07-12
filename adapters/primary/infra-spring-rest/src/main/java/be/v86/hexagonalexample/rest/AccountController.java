@@ -6,7 +6,7 @@ import be.v86.hexagonalexample.application.DepositRequest;
 import be.v86.hexagonalexample.application.InvalidAccountIdException;
 import be.v86.hexagonalexample.application.InvalidAmountException;
 import be.v86.hexagonalexample.domain.AccountId;
-import be.v86.hexagonalexample.domain.AccountRepository;
+import be.v86.hexagonalexample.domain.AccountNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -54,7 +54,7 @@ public class AccountController {
     }
 
     @ExceptionHandler(value = {
-            AccountRepository.AccountNotFoundException.class,
+            AccountNotFoundException.class,
             InvalidAccountIdException.class,
             InvalidAmountException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
