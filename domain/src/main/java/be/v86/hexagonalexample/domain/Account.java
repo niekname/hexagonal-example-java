@@ -10,6 +10,12 @@ public class Account {
         this.balance = new Balance(0);
     }
 
+    public Account(final AccountId accountId,
+                   final Balance balance) {
+        this.accountId = accountId;
+        this.balance = balance;
+    }
+
     public Balance getBalance() {
         return balance;
     }
