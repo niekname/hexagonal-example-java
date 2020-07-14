@@ -6,7 +6,7 @@ import be.v86.hexagonalexample.domain.Balance;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document("accounts")
 public class MongoAccount {
 
     @Id

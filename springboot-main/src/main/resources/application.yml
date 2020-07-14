@@ -1,1 +1,1 @@
-logging.level=DEBUG
+spring.data.mongodb.uri: mongodb://localhost/accounts
